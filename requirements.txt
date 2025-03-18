@@ -5,3 +5,4 @@ faiss-cpu
 transformers
 groq
 flask_cors
+dotenv
