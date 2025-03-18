@@ -4,3 +4,4 @@ torch
 faiss-cpu
 transformers
 groq
+flask_cors
