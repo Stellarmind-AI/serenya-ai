@@ -1,0 +1,6 @@
+flask
+pandas
+torch
+faiss-cpu
+transformers
+groq
