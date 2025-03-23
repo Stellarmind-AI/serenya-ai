@@ -13,7 +13,6 @@ import groq  # For Llama3 API
 load_dotenv()
 file_id = os.getenv("FILE_ID")
 api_key = os.getenv("API_KEY")
-print(api_key);
 # === LOAD DATASET FROM GOOGLE DRIVE ===
 download_url = f"https://drive.google.com/uc?id={file_id}"
 
@@ -54,7 +53,11 @@ print(f"✅ FAISS index created with {len(embeddings)} embeddings.")
 
 # === INITIALIZE FLASK APP ===
 app = Flask(__name__)
-CORS(app, resources={r"/": {"origins": "*"}})
+# Update CORS configuration with more comprehensive settings
+CORS(app, resources={r"/*": {"origins": "*"}}, 
+     supports_credentials=True,
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type", "X-Requested-With", "Authorization"])
 
 # === INITIALIZE GROQ CLIENT ===
 client = groq.Client(api_key=api_key)
