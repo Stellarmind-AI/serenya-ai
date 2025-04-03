@@ -126,6 +126,7 @@ def chat():
             {"role": "user", "content": f"Context:\n{context}\nUser Query: {user_query}"}
         ],
         temperature=0.7,  
+        
         top_p=0.9        
     )
     
